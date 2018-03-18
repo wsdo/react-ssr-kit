@@ -1,6 +1,6 @@
 const express = require('express')
 const ReactSSR = require('react-dom/server')
-const serverEntry = require('../dist/server-entry').dafault
+const serverEntry = require('../dist/server-entry').default
 const fs = require('fs')
 const path = require('path')
 const template = fs.readFileSync(path.join(__dirname, '../dist/index.html'),'utf8')
