@@ -10,6 +10,7 @@
     "build:client": "webpack --config build/webpack.config.client.js",
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.client.js",
     "build": "npm run clear && npm run build:server && npm run build:client",
+    "dev:server": "cross-env NODE_ENV=development node server/server.js",
     "start": "node server/server.js"
   },
   "author": "",
@@ -22,12 +23,15 @@
     "reactjs": "^1.0.0"
   },
   "devDependencies": {
+    "axios": "^0.18.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-es2015-loose": "^8.0.0",
     "babel-preset-react": "^6.24.1",
     "cross-env": "^5.1.4",
+    "http-proxy-middleware": "^0.18.0",
+    "memory-fs": "^0.4.1",
     "react-dom": "^16.2.0",
     "react-hot-loader": "^3.1.3",
     "rimraf": "^2.6.2",
