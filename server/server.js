@@ -14,7 +14,7 @@ app.get('*',function (req,res) {
     const appString = ReactSSR.renderToString(serverEntry)
     console.log(11,appString);
     
-    res.send(template.replace('<app></app>', appString))
+    res.send(template.replace('<!-- app -->', appString))
 })
 
 app.listen(3333, function () {
