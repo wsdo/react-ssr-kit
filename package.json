@@ -10,7 +10,6 @@
     "build:client": "webpack --config build/webpack.config.client.js",
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.client.js",
     "build": "npm run clear && npm run build:server && npm run build:client",
-    "dev:server": "cross-env NODE_ENV=development node server/server.js",
     "start": "node server/server.js"
   },
   "author": "",
