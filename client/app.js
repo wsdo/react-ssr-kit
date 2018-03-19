@@ -21,8 +21,6 @@ render(App)
 if(module.hot){
     module.hot.accept('./App.jsx', ()=>{
         const NextApp = require('./App.jsx').default
-        console.log(222,NextApp);
-        
         // ReactDOM.render(<NextApp />, document.getElementById('root'))
         render(NextApp)
 

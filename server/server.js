@@ -17,13 +17,16 @@ if (!isDev) {
         const appString = ReactSSR.renderToString(serverEntry)
         console.log(11,appString);
         
-        res.send(template.replace('<!-- app -->', appString))
+        res.send(template.replace('<!-- stark -->', appString))
     })
 } else {
     const devStatic = require('./util/dev-static')
     devStatic(app)
 }
 
-app.listen(3333, function () {
-    console.log("server is listening on 3333")
+app.listen(3006, function () {
+  console.log('====================================')
+  console.log('open url view website')
+  console.log('====================================')
+  console.log("http://localhost:3006")
 })

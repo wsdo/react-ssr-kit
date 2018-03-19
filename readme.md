@@ -1,9 +1,17 @@
-npm i babel-preset-es2015 babel-preset-es2015-loose babel-preset-react -D
+## 一步一步构建 react ssr 项目
 
-npm i cross-env -D
+### 入门指南
+#### 最简单的同构 simple ssr 
+> 去guide 文件夹里面去看
 
 
-## hot 
- 
+### master 分支说明
+### 启动
+```
+  npm i 
+  <!-- 启动开发环境 -->
+  npm run dev:client
 
- webpack-dev-server --contentbase src --inline --hot
+  <!-- 启动开发同构 -->
+  npm run dev:server
+```
