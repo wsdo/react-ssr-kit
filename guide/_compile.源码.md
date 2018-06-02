@@ -1,4 +1,5 @@
-3.4 module._compile
+### 3.4 module._compile
+```js
 // Run the file contents in the correct scope or sandbox. Expose
 // the correct helper variables (require, module, exports) to
 // the file.
@@ -59,7 +60,7 @@ Module.prototype._compile = function(content, filename) {
   //    module, etc. variables locally to the module scope.
   // 4. Run that function
 };
-
+```
 / / 1。创建独立的需要调用module.require的函数。
 / / 2。附加其他辅助方法以要求。
 / / 3。将JS代码封装在一个提供我们需要的函数中，
