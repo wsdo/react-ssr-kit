@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default class App  extends React.Component {
-    render(){
+export default class App extends React.Component {
+    render() {
         return (
-            <div>hi  stark</div>
+            <div>hi  stark wang</div>
         )
     }
 
