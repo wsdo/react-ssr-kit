@@ -1,14 +1,7 @@
 const path = require('path')
-const HTMlPlugin = require('html-webpack-plugin')
-const webpack = require('webpack')
-const isDev = process.env.NODE_ENV === 'development'
 
-const config = {
-  entry: {
-    app: path.join(__dirname, '../client/app.js')
-  },
+module.exports = {
   output: {
-    filename: '[name].[hash].js',
     path: path.join(__dirname, '../dist'),
     publicPath: '/public/'
   },
@@ -17,6 +10,14 @@ const config = {
   },
   module: {
     rules: [
+      // {
+      //   enforce: 'pre',
+      //   test: /.(js|jsx)$/,
+      //   loader: 'eslint-loader',
+      //   exclude: [
+      //     path.resolve(__dirname, '../node_modules')
+      //   ]
+      // },
       {
         test: /.jsx$/,
         loader: 'babel-loader'
@@ -30,6 +31,9 @@ const config = {
       },
       {
         test: /\.css$/,
+        // exclude: [
+        //   path.join(__dirname, '../node_modules')
+        // ],
         use: [
           {
             loader: 'style-loader',
@@ -68,39 +72,11 @@ const config = {
               ]
             }
           }
+        ],
+        exclude: [
+          path.join(__dirname, '../node_modules')
         ]
-      },
-    ]
-  },
-  plugins: [
-    new HTMlPlugin({
-      template: path.join(__dirname, '../client/template.html')
-    })
-  ]
-}
-
-if (isDev) {
-  config.entry = {
-    app: [
-      'react-hot-loader/patch',
-      path.join(__dirname, '../client/app.js')
+      }
     ]
   }
-  config.devServer = {
-    host: '0.0.0.0',
-    port: '6666',
-    contentBase: path.join(__dirname, '../dist'),
-    hot: true,
-    // 显示黑色的弹窗
-    overlay: {
-      error: true
-    },
-    publicPath: '/public/',
-    historyApiFallback: {
-      index: '/public/index.html'
-    }
-  }
-  config.plugins.push(new webpack.HotModuleReplacementPlugin())
 }
-
-module.exports = config

@@ -77,7 +77,7 @@ module.exports = function (app) {
       const appString = ReactDOMServer.renderToString(serverBundle)
       console.log(11, appString)
 
-      res.send(template.replace('<!-- app -->', appString))
+      res.send(template.replace('<!-- stark -->', appString))
       // return serverRender(serverBundle, template, req, res)
     }).catch(next)
     // return res.send('waiting for compile, refresh later')
