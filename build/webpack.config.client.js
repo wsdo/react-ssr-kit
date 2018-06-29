@@ -5,8 +5,8 @@ const isDev = process.env.NODE_ENV === 'development'
 const webpackMerge = require('webpack-merge')
 const HTMLPlugin = require('html-webpack-plugin')
 
-
 const config = webpackMerge(baseConfig, {
+  devtool: '#cheap-module-eval-source-map',
   entry: {
     app: path.join(__dirname, '../client/app.js')
   },
@@ -21,6 +21,38 @@ const config = webpackMerge(baseConfig, {
     })
   ]
 })
+
+// const config = {
+//   entry: {
+//     app: path.join(__dirname, '../client/app.js')
+//   },
+//   output: {
+//     filename: '[name].[hash].js',
+//     path: path.join(__dirname, '../dist'),
+//     publicPath: '/public/'
+//   },
+//   module: {
+//     rules: [
+//       {
+//         test: /.jsx$/,
+//         loader: 'babel-loader'
+//       },
+//       {
+//         test: /.js$/,
+//         loader: 'babel-loader',
+//         exclude: [
+//           path.join(__dirname, '../node_modules')
+//         ]
+//       }
+//     ]
+//   },
+//   plugins: [
+//     new HTMLPlugin({
+//       template: path.join(__dirname, '../client/template.html')
+//     })
+//   ]
+// }
+
 if (isDev) {
   config.entry = {
     app: [
