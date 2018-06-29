@@ -12,10 +12,10 @@ const serverConfig = require('../../build/webpack.config.server')
 const getTemplate = () => {
   return new Promise((resolve, reject) => {
     axios.get('http://localhost:8888/public/index.html')
-            .then(res => {
-              resolve(res.data)
-            })
-            .catch(reject)
+      .then(res => {
+        resolve(res.data)
+      })
+      .catch(reject)
   })
 }
 
@@ -47,21 +47,21 @@ serverCompiler.watch({}, (err, stats) => {
   stats = stats.toJson()
   stats.errors.forEach(err => console.error(err))
   stats.warnings.forEach(warn => console.warn(warn))
-    // console.log(serverConfig.output.path, serverConfig.output.filename);
+  // console.log(serverConfig.output.path, serverConfig.output.filename);
 
   const bundlePath = path.join(
-        serverConfig.output.path,
-        serverConfig.output.filename
-    )
+    serverConfig.output.path,
+    serverConfig.output.filename
+  )
 
   console.log(111, bundlePath)
   const bundle = mfs.readFileSync(bundlePath, 'utf-8')
-    // const m = getModuleFromString(bundle, 'server-entry.js')
+  // const m = getModuleFromString(bundle, 'server-entry.js')
 
   const m = new Module()
   m._compile(bundle, 'server-entry.js')
   serverBundle = m.exports.default
-    // console.log(serverBundle);
+  // console.log(serverBundle);
 })
 
 module.exports = function (app) {
@@ -70,16 +70,16 @@ module.exports = function (app) {
   }))
 
   app.get('*', function (req, res, next) {
-        // if (!serverBundle) {
-        //     return res.send('waiting for compile, refresh later')
-        // }
+    // if (!serverBundle) {
+    //     return res.send('waiting for compile, refresh later')
+    // }
     getTemplate().then(template => {
       const appString = ReactDOMServer.renderToString(serverBundle)
       console.log(11, appString)
 
       res.send(template.replace('<!-- app -->', appString))
-            // return serverRender(serverBundle, template, req, res)
+      // return serverRender(serverBundle, template, req, res)
     }).catch(next)
-            // return res.send('waiting for compile, refresh later')
+    // return res.send('waiting for compile, refresh later')
   })
 }
