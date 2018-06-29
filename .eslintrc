@@ -51,7 +51,7 @@
     "yoda": "off",
     "dot-notation": 1,
     "no-param-reassign": 1,
-    "func-names": 1,
+    "func-names": 0,
     "class-methods-use-this": 0,
     "no-plusplus": 0
   }
