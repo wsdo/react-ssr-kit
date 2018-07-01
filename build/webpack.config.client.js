@@ -4,6 +4,7 @@ const baseConfig = require('./webpack.base')
 const isDev = process.env.NODE_ENV === 'development'
 const webpackMerge = require('webpack-merge')
 const HTMLPlugin = require('html-webpack-plugin')
+const configs = require('../config')
 
 const config = webpackMerge(baseConfig, {
   devtool: '#cheap-module-eval-source-map',
@@ -72,6 +73,16 @@ if (isDev) {
     publicPath: '/public/',
     historyApiFallback: {
       index: '/public/index.html'
+    },
+    proxy: {
+      // '/v1/**': 'http://api.shudong.wang/v1',
+      '/v1': {
+        target: configs.baseUrl,
+        changeOrigin: true
+        // pathRewrite: {
+        //   '^/api': '/api'
+        // }
+      }
     }
   }
   config.plugins.push(new webpack.HotModuleReplacementPlugin())

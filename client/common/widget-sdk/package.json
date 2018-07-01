@@ -1,0 +1,119 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "@hujiang/widget-sdk",
+        "scope": "@hujiang",
+        "escapedName": "@hujiang%2fwidget-sdk",
+        "name": "@hujiang/widget-sdk",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/Freedom/code/itembank"
+    ]
+  ],
+  "_cnpm_publish_time": 1490063958315,
+  "_from": "@hujiang/widget-sdk@latest",
+  "_id": "@hujiang/widget-sdk@1.0.0",
+  "_inCache": true,
+  "_location": "/@hujiang/widget-sdk",
+  "_nodeVersion": "6.9.1",
+  "_npmUser": {
+    "name": "dailiang",
+    "email": "dailiang@hujiang.com"
+  },
+  "_npmVersion": "3.10.8",
+  "_phantomChildren": {},
+  "_publish_on_cnpm": true,
+  "_requested": {
+    "raw": "@hujiang/widget-sdk",
+    "scope": "@hujiang",
+    "escapedName": "@hujiang%2fwidget-sdk",
+    "name": "@hujiang/widget-sdk",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "http://registry.fe.yeshj.com/@hujiang/widget-sdk/download/@hujiang/widget-sdk-1.0.0.tgz",
+  "_shasum": "df4ac7d3ec5be5e0e153c9312330f3e569fb4f31",
+  "_shrinkwrap": null,
+  "_spec": "@hujiang/widget-sdk",
+  "_where": "/Users/Freedom/code/itembank",
+  "author": "",
+  "dependencies": {
+    "@hujiang/js-bridge": "^0.1.0",
+    "install": "^0.8.7",
+    "promise-polyfill": "^6.0.2",
+    "unfetch": "^2.1.1"
+  },
+  "description": "clover is widgetSDK",
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "ava": "^0.17.0",
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-polyfill": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "chokidar-cli": "^1.2.0",
+    "gulp": "^3.9.1",
+    "jsdoc-to-markdown": "^3.0.0",
+    "precommit-hook": "^3.0.0",
+    "standard": "^8.6.0",
+    "webpack": "beta",
+    "webpack-dev-server": "beta"
+  },
+  "dist": {
+    "shasum": "df4ac7d3ec5be5e0e153c9312330f3e569fb4f31",
+    "size": 57795,
+    "key": "/@hujiang/widget-sdk/-/@hujiang/widget-sdk-1.0.0.tgz",
+    "tarball": "http://registry.fe.yeshj.com/@hujiang/widget-sdk/download/@hujiang/widget-sdk-1.0.0.tgz"
+  },
+  "gitHead": "5548310ab1215d6f2bb70a94d2d32a792d7609d6",
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "dailiang",
+      "email": "dailiang@hujiang.com"
+    }
+  ],
+  "name": "@hujiang/widget-sdk",
+  "optionalDependencies": {},
+  "pre-commit": [
+    "lint",
+    "test"
+  ],
+  "readme": "ERROR: No README data found!",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.yeshj.com:widget-store/clover.git"
+  },
+  "scripts": {
+    "dev": "chokidar-cli '**/*.js' -c 'standard && ava'",
+    "doc": "gulp doc",
+    "lint": "standard",
+    "test": "mocha ./test",
+    "validate": "npm ls"
+  },
+  "standard": {
+    "globals": [
+      "define",
+      "io",
+      "location",
+      "HJSDK",
+      "window"
+    ],
+    "ignore": [
+      "webpack.config.js"
+    ]
+  },
+  "version": "1.0.0"
+}

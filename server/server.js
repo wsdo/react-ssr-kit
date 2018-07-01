@@ -3,8 +3,28 @@ const ReactSSR = require('react-dom/server')
 const fs = require('fs')
 const path = require('path')
 const app = express()
-
+const proxyMiddleware = require('http-proxy-middleware')
+const config = require('../config')
 const isDev = process.env.NODE_ENV === 'development'
+app.use('/api', require('./util/proxy'))
+// 客户端跨域代理
+const proxyTable = {
+  '/v1': {
+    target: config.baseUrl,
+    changeOrigin: true
+    // pathRewrite: {
+    //   '^/api': '/api'
+    // }
+  }
+}
+
+Object.keys(proxyTable).forEach(function (context) {
+  var options = proxyTable[context]
+  if (typeof options === 'string') {
+    options = { target: options }
+  }
+  app.use(proxyMiddleware(options.filter || context, options))
+})
 
 if (!isDev) {
   const serverEntry = require('../dist/server-entry').default
